@@ -10,6 +10,7 @@ import CategoryEntry from "./component/admin-dashboard/CategoryEntry.tsx";
 import CourseEntry from "./component/admin-dashboard/CourseEntry.tsx";
 import CourseEdit from "./component/admin-dashboard/CourseEdit.tsx";
 import LessonEntry from "./component/admin-dashboard/LessonEntry.tsx";
+import LessonEdit from "./component/admin-dashboard/LessonEdit.tsx";
 
 export default function App() {
     return (
@@ -25,7 +26,8 @@ export default function App() {
                         <Route path="category-entry" element={<CategoryEntry />} />
                         <Route path ="course-entry" element={<CourseEntry />} />
                         <Route path ="course-edit" element={<CourseEdit />} />
-                        <Route path ="lessons-entry" element={<LessonEntry />} />
+                        <Route path="lessons-entry/:id" element={<LessonEntry />} />
+                        <Route path="lessons-edit/:id" element={<LessonEdit />}/>
                   </Route>
               </Routes>
                <FooterComponent />

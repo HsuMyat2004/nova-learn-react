@@ -104,8 +104,12 @@ export default function CourseEdit() {
                                             Edit
                                         </button>
                                         <Link to={`/admin-dashboard/lessons-entry/${course.courseId}`}> <button
-                                            className="px-4 py-2 rounded bg-amber-700 text-white text-sm hover:bg-amber-700">
+                                            className="px-4 py-2 mr-3 rounded bg-amber-700 text-white text-sm hover:bg-amber-700">
                                             Add Lessons
+                                    </button></Link>
+                                        <Link to={`/admin-dashboard/lessons-edit/${course.courseId}`}> <button
+                                            className="px-4 py-2 rounded bg-green-700 text-white text-sm hover:bg-green-700">
+                                            Edit Lessons
                                     </button></Link>
                                     </td>
                                 </tr>

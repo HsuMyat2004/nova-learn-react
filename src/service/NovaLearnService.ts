@@ -3,6 +3,7 @@ import {getToken} from "./AuthService.ts";
 import type {CategoryDto} from "../model/CategoryDto.ts";
 import type {CourseInfoDto} from "../model/CourseInfoDto.ts";
 import type {CourseEdit} from "../model/CourseEdit.ts";
+import type {CourseLessonDto} from "../model/CourseLessonDto.ts";
 
 axios.interceptors.request.use(function (config) {
         // Do something before request is sent
@@ -33,3 +34,9 @@ export const createCourse = (course: FormData) =>
 
 export const updateCourse = (courseEdit: CourseEdit,id : number) =>
     axios.put<CourseInfoDto>(`${BACKEND_COURSE_URL}/edit/${id}`,courseEdit);
+
+export const createLesson = (lesson: CourseLessonDto,id : number) =>
+    axios.post<string>(`${BACKEND_COURSE_URL}/${id}`,lesson);
+
+export const getLesson = (id : number) =>
+    axios.get<CourseLessonDto>(`${BACKEND_COURSE_URL}/${id}`);
