@@ -39,4 +39,4 @@ export const createLesson = (lesson: CourseLessonDto,id : number) =>
     axios.post<string>(`${BACKEND_COURSE_URL}/${id}`,lesson);
 
 export const getLesson = (id : number) =>
-    axios.get<CourseLessonDto>(`${BACKEND_COURSE_URL}/${id}`);
+    axios.get<CourseLessonDto[]>(`${BACKEND_COURSE_URL}/lessons/${id}`);
