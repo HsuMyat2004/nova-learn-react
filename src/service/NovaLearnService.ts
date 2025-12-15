@@ -5,6 +5,12 @@ import type {CourseInfoDto} from "../model/CourseInfoDto.ts";
 import type {CourseEdit} from "../model/CourseEdit.ts";
 import type {CourseLessonDto} from "../model/CourseLessonDto.ts";
 
+const BACKEND_DOMAIN_ENTRY_URL = "http://localhost:8080/api/domain-entry";
+const BACKEND_COURSE_URL = "http://localhost:8080/api/course-infos";
+
+export const fetchAllCourses = () =>
+    axios.get<CourseInfoDto[]>(`${BACKEND_COURSE_URL}/list-courses`);
+
 axios.interceptors.request.use(function (config) {
         // Do something before request is sent
 
@@ -15,9 +21,6 @@ axios.interceptors.request.use(function (config) {
     },
     { synchronous: true, runWhen: () => true }
 );
-
-const BACKEND_DOMAIN_ENTRY_URL = "http://localhost:8080/api/domain-entry";
-const BACKEND_COURSE_URL = "http://localhost:8080/api/course-infos";
 
 export const getAllCourses = (teacherName:string) =>
     axios.get<CourseInfoDto[]>(`${BACKEND_COURSE_URL}/${teacherName}`);

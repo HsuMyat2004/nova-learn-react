@@ -13,6 +13,7 @@ import LessonEntry from "./component/admin-dashboard/LessonEntry.tsx";
 import LessonEdit from "./component/admin-dashboard/LessonEdit.tsx";
 
 export default function App() {
+
     return (
         <>
            <BrowserRouter>
@@ -21,6 +22,7 @@ export default function App() {
                   <Route path="/" element={<HomeComponent />} />
                   <Route path="/login" element={<LoginComponent />} />
                   <Route path="/register" element={<RegisterComponent />} />
+                  <Route path="/course/:id" element={<CourseDetails />} />
                   <Route path="/admin-dashboard" element={<AdminDashboard />} >
                         <Route path="" element={<CourseDetails />} />
                         <Route path="category-entry" element={<CategoryEntry />} />

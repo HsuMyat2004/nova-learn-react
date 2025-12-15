@@ -1,7 +1,7 @@
 export default function FooterComponent() {
     return (
         <>
-            <footer className="footer mt-10 sm:footer-horizontal bg-neutral text-neutral-content p-10">
+            <footer className="footer mt-10 sm:footer-horizontal bg-[#0A1A2F] text-neutral-content p-10">
                 <nav>
                     <h6 className="footer-title">Services</h6>
                     <a className="link link-hover">Branding</a>
