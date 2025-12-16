@@ -30,7 +30,7 @@ export default function LoginComponent() {
                }else if("ROLE_STUDENT" === roleName && cartItems.length > 0){
                    navigate('/enrolled-success');
                }
-               window.location.reload();
+               //window.location.reload();
            })
            .catch(err => {
                console.log(err);

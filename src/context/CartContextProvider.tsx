@@ -28,11 +28,15 @@ export default function CartContextProvider({children}:Props) {
         setCartItems([]);
     }
 
+    const getCourseId = () => {
+        return cartItems.map(item => item.courseId);
+    }
     const value = {
         cartItems,
         addToCart,
         removeFromCart,
-        clearCart
+        clearCart,
+        getCourseId
     }
     return (
         <>

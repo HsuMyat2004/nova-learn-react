@@ -7,6 +7,7 @@ export interface CartContext{
     addToCart: (course: CourseInfoDto) => void;
     removeFromCart: (courseId: number) => void;
     clearCart: () => void;
+    getCourseId:() => number[];
 }
 
 export const CartContext = createContext<CartContext>(
@@ -14,7 +15,8 @@ export const CartContext = createContext<CartContext>(
         cartItems: [],
         addToCart: () => {},
         removeFromCart: () => {},
-        clearCart: () => {}
+        clearCart: () => {},
+        getCourseId: () => [] as number[]
     }
 
 )
