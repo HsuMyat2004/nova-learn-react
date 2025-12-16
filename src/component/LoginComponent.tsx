@@ -1,10 +1,12 @@
-import {type FormEvent, useState} from "react";
+import {type FormEvent, useContext, useState} from "react";
 import type {LoginDto} from "../model/LoginDto.ts";
 import {Link, useNavigate} from "react-router-dom";
 import {login, setLoginUserName, setRoleName, setToken} from "../service/AuthService.ts";
+import {CartContext} from "../context/CartContext.ts";
 
 
 export default function LoginComponent() {
+    const {cartItems} = useContext(CartContext);
     const [loginDto,setLoginDto] = useState<LoginDto>({
         username: "",
         password: ""
@@ -25,8 +27,8 @@ export default function LoginComponent() {
                setLoginDto({...loginDto,username:"",password:""});
                if('ROLE_TEACHER' === roleName){
                    navigate('/admin-dashboard');
-               }else{
-                   navigate('/');
+               }else if("ROLE_STUDENT" === roleName && cartItems.length > 0){
+                   navigate('/enrolled-success');
                }
                window.location.reload();
            })

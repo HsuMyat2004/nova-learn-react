@@ -11,6 +11,7 @@ export default function CourseContextProvider({children}: Props) {
     const [courses, setCourses] = useState<CourseInfoDto[]>([]);
     const [searchCourses, setSearchCourses] = useState<CourseInfoDto[]>([]);
 
+
     useEffect(() => {
         fetchAllCourses()
             .then(res => {
@@ -21,6 +22,10 @@ export default function CourseContextProvider({children}: Props) {
                 console.error("Error fetching courses:", err);
             });
     }, []);
+
+    const getCourseById = (id: number) => {
+        return courses.find(course => course.courseId == id) as CourseInfoDto;
+    }
 
     // CourseContextProvider.tsx
     const searchCoursesByKeyWord = (keyword: string) => {
@@ -41,7 +46,8 @@ export default function CourseContextProvider({children}: Props) {
     const value = {
         courses,
         searchCourses,
-        searchCoursesByKeyWord
+        searchCoursesByKeyWord,
+        getCourseById
     };
 
     return (

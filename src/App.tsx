@@ -11,6 +11,9 @@ import CourseEntry from "./component/admin-dashboard/CourseEntry.tsx";
 import CourseEdit from "./component/admin-dashboard/CourseEdit.tsx";
 import LessonEntry from "./component/admin-dashboard/LessonEntry.tsx";
 import LessonEdit from "./component/admin-dashboard/LessonEdit.tsx";
+import CourseDetailsComponent from "./component/CourseDetailsComponent.tsx";
+import CartViewComponent from "./component/CartViewComponent.tsx";
+import EnrolledSuccessComponent from "./component/EnrolledSuccessComponent.tsx";
 
 export default function App() {
 
@@ -22,7 +25,7 @@ export default function App() {
                   <Route path="/" element={<HomeComponent />} />
                   <Route path="/login" element={<LoginComponent />} />
                   <Route path="/register" element={<RegisterComponent />} />
-                  <Route path="/course/:id" element={<CourseDetails />} />
+                  <Route path="/course/:id" element={<CourseDetailsComponent />} />
                   <Route path="/admin-dashboard" element={<AdminDashboard />} >
                         <Route path="" element={<CourseDetails />} />
                         <Route path="category-entry" element={<CategoryEntry />} />
@@ -31,6 +34,8 @@ export default function App() {
                         <Route path="lessons-entry/:id" element={<LessonEntry />} />
                         <Route path="lessons-edit/:id" element={<LessonEdit />}/>
                   </Route>
+                  <Route path="/cart-view" element={<CartViewComponent />} />
+                  <Route path="/enrolled-success" element={<EnrolledSuccessComponent />} />
               </Routes>
                <FooterComponent />
            </BrowserRouter>
