@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {GiMagicLamp} from "react-icons/gi";
-import {isLogin, isTeacher} from "../service/AuthService.ts";
+import {isLogin, isStudent, isTeacher} from "../service/AuthService.ts";
 import {FaShoppingCart} from "react-icons/fa";
 import {useContext} from "react";
 import {CartContext} from "../context/CartContext.ts";
@@ -9,6 +9,7 @@ export default function NavbarComponent() {
 
     const beTeacher = isTeacher();
     const beLoginnedIn = isLogin();
+    const beStudent = isStudent();
     const navigate = useNavigate();
     const {cartItems} = useContext(CartContext);
 
@@ -53,6 +54,11 @@ export default function NavbarComponent() {
                        {
                            beLoginnedIn && (
                                <li><Link to="/logout"  onClick={logoutHanlder}>Logout</Link></li>
+                           )
+                       }
+                       {
+                           beLoginnedIn && beStudent &&(
+                               <li><Link to="/own-property" >Own Property</Link></li>
                            )
                        }
                        {

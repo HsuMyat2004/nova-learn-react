@@ -27,8 +27,12 @@ export default function LoginComponent() {
                setLoginDto({...loginDto,username:"",password:""});
                if('ROLE_TEACHER' === roleName){
                    navigate('/admin-dashboard');
-               }else if("ROLE_STUDENT" === roleName && cartItems.length > 0){
+               } else if("ROLE_STUDENT" === roleName && cartItems.length > 0){
                    navigate('/enrolled-success');
+               } else if("ROLE_STUDENT" === roleName && cartItems.length === 0){
+                   navigate("/own_property")
+               } else {
+                   navigate('/');
                }
                //window.location.reload();
            })

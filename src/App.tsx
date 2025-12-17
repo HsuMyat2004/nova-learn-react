@@ -14,6 +14,8 @@ import LessonEdit from "./component/admin-dashboard/LessonEdit.tsx";
 import CourseDetailsComponent from "./component/CourseDetailsComponent.tsx";
 import CartViewComponent from "./component/CartViewComponent.tsx";
 import EnrolledSuccessComponent from "./component/EnrolledSuccessComponent.tsx";
+import OwnPropertyComponent from "./component/OwnPropertyComponent.tsx";
+import LearnLessonComponent from "./component/LearnLessonComponent.tsx";
 
 export default function App() {
 
@@ -27,7 +29,7 @@ export default function App() {
                   <Route path="/register" element={<RegisterComponent />} />
                   <Route path="/course/:id" element={<CourseDetailsComponent />} />
                   <Route path="/admin-dashboard" element={<AdminDashboard />} >
-                        <Route path="" element={<CourseDetails />} />
+                        <Route path="course/:id" element={<CourseDetails />} />
                         <Route path="category-entry" element={<CategoryEntry />} />
                         <Route path ="course-entry" element={<CourseEntry />} />
                         <Route path ="course-edit" element={<CourseEdit />} />
@@ -36,6 +38,8 @@ export default function App() {
                   </Route>
                   <Route path="/cart-view" element={<CartViewComponent />} />
                   <Route path="/enrolled-success" element={<EnrolledSuccessComponent />} />
+                  <Route path="/own-property" element={<OwnPropertyComponent />} />
+                  <Route path="/learn-lessons/course/:id" element={<LearnLessonComponent/>} />
               </Routes>
                <FooterComponent />
            </BrowserRouter>

@@ -3,11 +3,13 @@ import { CartContext } from "../context/CartContext.ts";
 import { getLoginUserName } from "../service/AuthService.ts";
 import type { EnrolledCourseDto } from "../model/EnrolledCourseDto.ts";
 import { enrollCourse } from "../service/NovaLearnService.ts";
+import {useNavigate} from "react-router-dom";
 
 export default function EnrolledSuccessComponent() {
     const { getCourseId, cartItems } = useContext(CartContext);
     const courseArray = getCourseId();
     const studentName = getLoginUserName()!;
+    const navigator = useNavigate();
 
     const enrolledCourseHandler = () => {
         const enrolledCourseDto: EnrolledCourseDto = {
@@ -18,6 +20,7 @@ export default function EnrolledSuccessComponent() {
         enrollCourse(enrolledCourseDto)
             .then(res => {
                 console.log(res.data);
+                navigator("/own-property")
                 // You might want to add a success notification here
             })
             .catch(err => {

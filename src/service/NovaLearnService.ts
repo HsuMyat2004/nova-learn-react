@@ -46,3 +46,6 @@ export const getLesson = (id : number) =>
 
 export const enrollCourse = (enrolledCourseDto : EnrolledCourseDto) =>
     axios.post<string>(`${BACKEND_COURSE_URL}/enrolled-course`,enrolledCourseDto);
+
+export const getEnrollCourses = (name : string) =>
+    axios.get<CourseInfoDto[]>(`${BACKEND_COURSE_URL}/list-enrolled-courses/${name}`)
